@@ -1,44 +1,15 @@
-\section{An example section}
-  \label{sec:example}
+Since the Alma-Ata declaration in 1978, the international community has recognized universal primary healthcare (UPC) as a fundamental human right \autocite{rifkin_alma_2018}. The United Nations enshrined a commitment to meeting universal healthcare under goal 3 of the Sustainable Development Goals. Despite this consensus, achieving coverage has proved challenging in the intervening decades - particularly in low-and middle income countries (LMICs). Furthermore, contemporary progress reports have warned that hard-won improvements in indicators of health service access and outcomes are under threat \autocite{world_health_organization_protect_2022}.
 
-\iftoggle{thesis}{%
-  This is content that shows up only in the thesis.
-}{
-  Because of space constraints, we leave this as an exercise to the
-  reader.
-}
+These concerns are particularly salient in rural and hard-to-reach communities. While countries often health resource shortages as a whole, available resources tend to be more concentrated in urban areas, leaving rural areas behind \autocite{strasser_rural_2003, johnston_training_2020, strasser_rural_2016}. With fewer transportation options, and provider choices, and less wealth, rural individuals in these communities often experience lower service utilization, poorer health outcomes, and shorter life-expectancy.
 
-\iftoggle{draft}{%
-  \textsf{[\textbf{comment}: Fix such and such, revise
-  \autoref{sec:yet-another-example}.  Rewrite \autoref{ch:conclusions}.]}
-}{}
+Reaching health service coverage goals is predicated on health service access, but geographic accessibility alone is insufficient to achieve coverage \autocite{shengelia_access_2005}. Access is complex and includes dimensions of geographical accessibility, service quality, cost,  and availability \autocite{penchansky_concept_1981}. Moreover, although service quality influences health outcomes for patients, it is perceptions that drive health service utilization and care-seeking behavior \autocite{saurman_improving_2015, evans_universal_2013, zastowny_patient_1989}.
 
-\subsection{An example sub-section}
-  \label{sec:another-example}
+Measurement of access is complex, and there is a growing body of evidence that the intersection of these dimensions for a particular individual, place, or health concern (broadly referred to as the "health service environment") influences health behaviors and outcomes. Kruk et al. found that health service quality is associated with of excess mortality in LMICs \autocite{kruk_mortality_2018}. Others have found a relationship between service readiness and health service utilization \autocite{sochas_predictive_2020, escamilla_role_2018, liu_exploring_2019, gage_does_2018}. While this work has been foundational evidence for the effect of the health service environment on health, many measures remain overly simplistic and often do not fully address the complexity measuring quality or the health service environment \autocite{hanefeld_understanding_2017}.
 
-The end-to-end princple~\cite{10.1145/357401.357402}.
+My dissertation work is focused on how the health service environment is associated with household and individual level health service utilization. My work aims to improve the \textit{measurement} of the health service environment and establish its relationship with health service utilization using data from the Demographic and Health Surveys, the Service Provision Assessment, and (possibly) Performance Monitoring for Action. I place a special emphasis on rural communities, where there are opportunities for considerable return of impact on investment.
 
-\subsubsection{An example sub-sub-section}
-  \label{sec:yet-another-example}
+The second chapter aims to use Service Provision Assessment data from Afghanistan, Haiti, Nepal and Tanzania to compare and contrast facility-level determinants of patient satisfaction. SPA data includes detailed facility-level information, and client exit interviews. This analysis serves to both evaluate the predictive value of commonly used metrics like the Service Readiness Index on patient satisfaction, and to identify less explored factors. A multi-country approach helps to discern the characteristics which may be broadly generalizeable across contexts from those which are country specific. While there has been some exploration of this data in the literature, measures of patient satisfaction have been treated as binary \autocite{bergh_identifying_2022}. The unit of analysis for this chapter is a facility client. Dimension reduction techniques will also be employed for a more dynamic measure of the patient satisfaction outcome; Bayesian regression framework will be used to assess the relationships between facility level predictors and the patient satisfaction.
 
-This-is-an-overfull-hbox-WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW.
+The third chapter proposes a probability-based method for linking geomasked community locations (such as those found in the Demographic and Health Surveys) with other spatial features by leveraging the probability of the true location given a displaced location. Several techniques already exist for linking geomasked communities with other features, however there are fundamental shortcomings in these approaches \autocite{skiles_geographically_2013, warren_influence_2016-1, warren_influence_2016, perez-heydrich_influence_2016}. Specifically, mainstream techniques do not account for the fact that probability of displacement within an area is not equal across space. The proposed probability-based linking method accounts for this, with additional benefits such as measures of linkage uncertainty and a unified approach for all linkage types (distance, point-in-polygon, point-in-raster). Performance is assessed by 1) setting a "true" location and value, 2) applying the DHS displacement algorithm on the true location, 3) applying established linking methods and the proposed probability-based method, and 4) comparing the error and bias of the established method with the probability-based method \autocite{morris_using_2019}.
 
-Overfull hboxes (text going into the margins) will have a visible marker
-in the margin indicating where it's overfull.
-
-\begin{table}
-\centering
-\begin{tabular}{lS}
-\toprule
-$x$      & \textbf{value} \\
-\midrule
-a        & 1.23           \\
-b        & 3.456          \\
-c        & 100.0002       \\
-d        & 12345.0        \\
-\bottomrule
-\end{tabular}
-\caption[Short caption for the LOT]
-        {Longer caption for the paper}
-\label{tbl:example}
-\end{table}
+The fourth chapter aims to test the hypothesis that health service utilization is associated with the health service environment in Haiti and Malawi. There is growing body of evidence of a relationship between the health service environment and linking household surveys to it \autocite{gao_understanding_2019, gage_does_2018, sochas_predictive_2020}. Outcomes of interest include early initiation of and full antenatal care and care-seeking for sick children from a skilled provider and a negative outcome of care-seeking from an unqualified provider. Different dimensions of access can be mapped using an enhanced two-step floating catchment area approach. The resulting spatial layer will be linked to communities using the approach from Chapter three. Bayesian multilevel logistic regression models will be used to assess the relationship between dimensions of the health service environment and service utilization adjusting for individual level characteristics. This study contributes to the existing body of research by using more nuanced measures of the health service environment than previously employed.

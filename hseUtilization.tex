@@ -1,0 +1,63 @@
+\section{Data}
+
+This analysis will be most feasible in countries where there is a census of health facilities included in the SPA. These include Malawi and Haiti. Haiti may be preferable, as the SPA and DHS were conducted twice there (2014 and 2017), allowing for additional, confirmatory analysis.
+
+\subsection{Service Provision Assessment}
+
+In eligible countries, the Service Provision Assessment is a census of health facilities. It includes detailed information about health facilities, their staff, medical stock, services offered, and infrastructure.
+
+\subsection{Demographic and Health Survey}
+
+The Demographic and Health Surveys are household surveys that collect information about household characteristics, health attitudes, behaviors and outcomes, and more. Households are selected using a two-stage stratified sampling approach. First, sample sizes within each strata are set such that they provide commonly used indicators sufficient precision. Next, communities (or census blocks, which I will refer to as communities) are selected with probability proportional to size. Households are the ultimate sampling unit, and are selected using systematic random sampling from a count of all households in selected communities.
+
+Every eligible respondent (typically men and women of reproductive age) who slept in the household the night before the survey visit is interviewed.
+
+GPS points are taken for at the center of the community, and displaced according to the procedure described in Section \ref{sec:dispProc}.
+
+\section{Linking SPA to the DHS}
+\label{sec:linking}
+
+First I will define a catchment area for health facilities. This may be accomplished by using Thiessen polygons (Thiessen polygons define the area where a health facility would be the closest by euclidean distance) or an access score using an enhanced two step floating catchment area \autocite{gao_understanding_2019-1}, or the traditional method of simply drawing a buffer around a health facility.
+
+Next, using the distribution described in Equation \ref{eq:pdf} and Figure \ref{fig:pdf_surface}, I will calculate the average access or quality score of health facilities weighted by the probability that a community falls within that facility's catchment area (in the case of a the Thiessen polygon approach), or the probability of an access score (in the case of the two-step floating catchment area approach).
+
+\section{Analytic approach}
+
+\subsection{Dependent variables}
+
+\begin{itemize}
+    \item Antenatal care for most recent pregnancy
+    \begin{itemize}
+        \item Full antenatal care: defined as attending four or more ANC visits
+        \item Timely initiation of Antenatal Care: Defined as first visit within the first trimester
+    \end{itemize}
+    \item Facility-based delivery among births in the past five years
+    \item Care-seeking for children younger than five years with fever or diarrhea.
+    \item Use of informal providers
+\end{itemize}
+
+\subsection{Independent Variables}
+
+\begin{itemize}
+    \item Access score (derived with the linking approach described in Section \ref{sec:linking})
+    \begin{itemize}
+        \item Weighted quality approach
+        \item Weighted E2SFCA access score (with SRI measure of quality as capacity, similar to \cite{gao_understanding_2019})
+    \end{itemize}
+    \item Individual and community characteristic
+    \begin{itemize}
+        \item Household wealth
+        \item Education level
+        \item Marital status
+        \item Child / birth indicators
+        \begin{itemize}
+            \item (For Antenatal care outcome) Parity, age of mother at time of birth
+            \item (For Sick child outcome) Age, sex of child
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+
+\section{Models}
+
+I anticipate implementing a multilevel model because the households clustered within communities likely violate the assumption of independence between observations. The first level of the model will be the individual, I will set a community-specific random intercept to account for intra-community homogeneity. 

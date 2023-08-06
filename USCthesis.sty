@@ -36,234 +36,6 @@
 %%%    SeeAlso             = "techreport.sty",
 %%% }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%$% $Log: USCthesis.sty,v $
-%$%
-%$% Revision 1.4.1  2022/06/16 00:00:00  Calvin Ardi
-%$%   ToC: chapter titles and page numbers are now medium-weight instead
-%$%     of bold--USC style guidelines state that page numbers are always
-%$%     non-bold. (Credit: James Preiss for finding bug)
-%$%   Package: adds `tocbold` option to bold chapter titles in ToC
-%$%
-%$% Revision 1.4.0  2020/06/25 00:00:00  Calvin Ardi
-%$%   Page: margins are now 1" all around (before: accounted for margin
-%$%     gutter)
-%$%   Page: footer margin for page numbers are 0.5" from the bottom
-%$%   Title page: remove horizontal rule
-%$%   Title page: now properly centered on the page
-%$%   PDF: fix pdfbookmarks for chapters, formatted as "[Title]" (was:
-%$%     "Chapter [Title]")
-%$%   Prefacesection: fixed layout/formatting to be consistent with all
-%$%     other sections/chapters
-%$%
-%$% Revision 1.3.1  2016/06/15 19:00:00  Masoud Moshref
-%$%	  Remove \reference command. Use biblatex package insteaad
-%$%   Fix appendix and prefacesection to work with hyperref package
-%$%
-%$% Revision 1.3  2010/08/12 19:00:00  Marcos Vieira
-%$%   Fix Title to be double spaced
-%$%   Fix default to be 'FACULTY OF USC GRADUATE SCHOOL'
-%$%   Fix default to be 'References' (Reference List has been deprecated)
-%$%   Fix the thickness of the front page line
-%$%
-%$% Revision 1.2.1  2008/03/14 13:47:00  dlatimer
-%$% updated TOC to have title "Table of Contents"
-%$% updated TOC to have chapters be formatted "Chapter X:   Blah"
-%$%
-%$% Revision 1.1.1.1  2003/11/12 19:13:56  boyoon
-%$% imported version
-%$%
-%$% Revision 1.2  2003/07/16 17:35:55  gerkey
-%$% updated uscthesis
-%$%
-%$% Revision 1.16  2003/07/16 17:25:17  gerkey
-%$% changed version num
-%$%
-%$% Revision 1.15  2003/07/12 04:28:48  gerkey
-%$% made prefacesection titles left-justified, rather than centered
-%$%
-%$% Revision 1.14  2003/06/12 23:30:55  gerkey
-%$% added proquest package
-%$%
-%$% Revision 1.13  2003/06/12 20:00:20  gerkey
-%$% foo
-%$%
-%$% Revision 1.12  2003/06/12 17:23:11  gerkey
-%$% foo
-%$%
-%$% Revision 1.11  2003/04/28 23:41:05  gerkey
-%$% fixed spacing between Copyright and author name
-%$%
-%$% Revision 1.10  2003/04/28 23:33:55  gerkey
-%$% took out incorrect documentation
-%$%
-%$% Revision 1.9  2002/08/30 19:43:04  gerkey
-%$% slight changes
-%$%
-%$% Revision 1.8  2002/08/30 19:24:38  gerkey
-%$% removed extra inter-chapter spacing in LOF and LOT by redefining report.cls's
-%$% \chapter command.
-%$%
-%$% Revision 1.7  2002/08/30 17:55:55  gerkey
-%$% changed (fixed) page margins and used \setstretch{2.0} to get "real"
-%$% double-spacing, per Yaser's comments.  except for spacing in lof and lot,
-%$% we're in compliance with 2002 guidelines.
-%$%
-%$% Revision 1.6  2002/08/27 19:47:38  gerkey
-%$% made the following fixes:
-%$%   - body uses true doublespacing
-%$%   - listoffigures and listoftables entries are singlespaced, with
-%$%       doublespacing between entries
-%$%   - cover page re-formatted to match guidelines
-%$%
-%$% Revision 1.5  2002/08/19 18:49:15  gerkey
-%$% fixed two user-reported bugs in order to adhere to the 2002 guidelines:
-%$%
-%$%   - Submission date on cover is now normal, not bold
-%$%
-%$%   - Copyright notice on cover is now not centered; rather the "Copyright 2002"
-%$%     is on the left, and the author name is on the right.
-%$%
-%$% Revision 1.4  2001/11/08 22:19:37  gerkey
-%$% changed comments and docs
-%$%
-%$% Revision 1.3  2001/11/08 01:25:29  gerkey
-%$% rejigged to start from v.2.3
-%$%
-%%
-%%
-%$%  Revision 3.0  2001/11/07  16:47:08  brian gerkey (gerkey@usc.edu)
-%$%  Converted from a LaTeX 2.09 style to a LaTeX2e package
-%$%
-%$%      - AFAIK, there are no changes to style, layout, or default options;
-%$%          just some hacking to adhere to the LaTeX2e package interface.
-%$%
-%$%      - Usage is now as follows:
-%$%          \documentclass{report}
-%$%          \usepackage[<options>]{USCthesis}
-%$%          \begin{document}
-%$%       <options> can be any of the old options (e.g., proposal, fussy),
-%$%       as documented below.
-%$%
-%%   Added some comments.  And corrected some spelling.
-%$%
-%$%  Revision 2.3  92/08/13  14:22:21  sdc
-%$%  Added \universityname for easy use outside USC.  Also the
-%$%  \if@techreport switch can be used to turn off the one-side-only
-%$%  warning message (for better interface with the techreport style
-%$%  option).  Placed a check for TeX-3.0 to allow an old TeX to work
-%$%  without warnings.  Cleaned-up the code and comments a little.
-%$%
-%$%  Revision 2.2  92/06/29  10:59:15  sdc
-%$%  Added standard file header for style.
-%$%
-%$%  Revision 2.1  91/02/09  00:54:08  cochran
-%$%  Fixed bug in interaction with techreport.sty.
-%$%
-%$%  Revision 2.0  91/01/03  16:12:48  cochran
-%$%  Merged divergent branches by cochran@iris.usc.edu (1.10) and by
-%$%  tli@almaak.usc.edu (1.11); these are common up to revision 1.8.
-%$%  Removed fix in 1.11 which added Reference List to the TOC since
-%$%  this is handled by the \references command.
-%$%
-%$%    Changes by tli@almaak.usc.edu:
-%$%
-%$%      1.11 (90/09/23) Change title font to 12pt.  Change author's
-%$%      font to 12pt.  Fix Reference List so that it shows up in TOC.
-%$%      Break the way that appendices show up in TOC.
-%$%
-%$%      1.10 (90/07/10) Added a hack to make it work with TeX 3.0.
-%$%
-%$%      1.9 (90/01/30) Make subsubsections show up with numbered
-%$%      labels and in the TOC.
-%$%
-%$%    Changes by cochran@iris.usc.edu:
-%$%
-%$%      1.10 (90/12/29) Added commands and modified \title to allow
-%$%        multiple volume dissertations.  Fixed bug which caused the
-%$%        pagestyle of the TOC to be wrong if there were no
-%$%        preceeding prefacesections.
-%$%
-%$%      1.9 (90/12/03)  Corrected title size to correspond to the
-%$%        University Publications statement that the "Title must be
-%$%        the same size as `FACULTY OF ...' and no bold print.  Also
-%$%        added an optional argument to the \pageleft command to
-%$%        allow the fine tuning of the gutter margin in the
-%$%        techreport style option.
-%$%
-%$%  Revision 1.8  89/09/15  19:39:11  tli
-%$%  Change spacing in accordance with University Publications.
-%$%
-%$%  Revision 1.7  89/01/27  13:56:04  tli
-%$%  Too much space after a saying.
-%$%
-%$%  Revision 1.6  89/01/26  14:01:20  tli
-%$%  Added the saying environment.
-%$%
-%$%  Revision 1.5  88/11/02  10:42:47  cochran
-%$%  Minor corrections and removal of unnecessary \makeatletter and
-%$%  \makeatother.
-%$%
-%$%  Revision 1.4  88/10/20  11:58:38  cochran
-%$%  Updated to allow the user more control over spacing to the "blue
-%$%  lines," and to be in accordance with the USC Regulations for
-%$%  Format and Presentation of Theses and Dissertations, published
-%$%  March 1987.
-%$%
-%$%  Revision 1.3  88/03/16  10:49:19  cochran
-%$%  Several small updates to \committee as suggested by peng@USC-IRIS.
-%$%
-%$%  Revision 1.1  88/03/05  20:04:51  cochran
-%$%  Set penalties, and new margin and page sizes.  Fixed bug which
-%$%  caused a wrong contents page for long lists of figures or tables.
-%$%
-%$%  Revision 1.0  87/03/05  18:29:34  cochran
-%$%  Created by combining the best (?) features of the dissertation
-%$%  styles written by Herb Barad @ USC-SIPI and Howard Trickey @
-%$%  Stanford University.
-%$%
-%$% NOTE:  This style assumes the existance of Stephen Page's
-%$%        `doublespace' package in addition to the standard
-%$%        LaTeX `report' document class.
-%%%
-%%% Example:
-%%%
-%%%    \documentclass[11pt]{report}
-%%%    \usepackage[proposal]{USCthesis}
-%%%    \usepackage[backend=bibtex,style=numeric,hyperref=true]{biblatex}
-%%%    \addbibresource{mybib.bib}
-%%%    \begin{document}
-%%%    \title[Volume I]{Dissertation Title}
-%%%    \author{Terry FullName Candidate}
-%%%    \committee{J.~Smith & (Chairperson)\\*
-%%%               N.~Jones\\*
-%%%               S.~Foobar & (Outside Member)}
-%%%    \begin{preface}
-%%%      \prefacesection{Dedication}
-%%%        This dissertation is dedicated to . . .
-%%%      \prefacesection{Acknowledgements}
-%%%        I would like to thank . . .
-%%%        \tableofcontents
-%%%        \listoftables
-%%%        \listoffigures
-%%%      \prefacesection{Abstract}
-%%%        This dissertation contains all knowledge about . . .
-%%%    \end{preface}
-%%%    \chapter{Introduction}
-%%%         . . .
-%%%    \chapter{Conclusions}
-%%%         . . .
-%%%    %\cleardoublepage % Might need to use this command to fix References TOC page number
-%%%    \begin{singlespace}
-%%%      \printbibliography[title={References},heading=bibintoc]
-%%%      \appendix
-%%%      \chapter{A Long Proof}
-%%%         . . .
-%%%    \end{singlespace}
-%%%         . . .
-%%%    \addvolumecontents{thesis_part2}
-%%%    \addvolumecontents{thesis_part3}
-%%%    \addvolumecontents[lof]{thesis_part2}
-%%%    \end{document}
 %%%
 %%% Documentation:
 %%%
@@ -786,11 +558,11 @@
       \makeproptitle
       \setcounter{page}{1}%
       \addtocounter{page}{\@startpageA}% Advance page counter for title page.
-    \else
-      \maketitle
-      \setcounter{page}{1}%
-      \addtocounter{page}{\@startpageA}% Advance page counter for (signature
-    \fi                                %   and) title.  At USC, the signature
+    % \else
+    %   \maketitle
+    %   \setcounter{page}{1}%
+    %   \addtocounter{page}{\@startpageA}% Advance page counter for (signature
+    % \fi                                %   and) title.  At USC, the signature
  \newpage                              %   page is not counted!
 %    \ifx\@volume\@empty\else % Add Volume ID to contents if present.
 %      \addtocontents{toc}{\protect\contentsline{part}{\@volume}{}}%
@@ -802,103 +574,216 @@
   \pagestyle{plain}%
   \setcounter{page}{\@startpageB}}
 
+% %%
+% %% Define the PROPOSAL title page
+% %%
+% \def\makeproptitle{%
+%   \begin{titlepage}%
+%     \null
+%     \vskip 60.0 true pt%          To adjust centering.
+%     \begin{center}
+%       {\Large \@title \par}%      Set title in \Large size.
+%       \ifx\@volume\@empty\else
+%         \vskip 3em%               Vertical space before volume.
+%         \@volume
+%       \fi
+%       \vskip 3em%                 Vertical space after title.
+%       % \ifthesis
+%       %   {Masters Thesis Proposal}%
+%       % \else
+%       %   {Ph.D. Dissertation Proposal}%
+%       \fi\\*%
+%       {by}%
+%       \vskip 3em                % Vertical space before author.
+%       {\lineskip .75em
+%        \@author
+%        \par}%
+%       \vskip 1.5cm              % Vertical space before date.
+%       {\small
+%         \@submitdate
+%         \par}%
+%       \vskip 1.5in
+%       {{\bf Guidance Committee}\\*[1.0 true cm]%
+%       \begin{tabular}[t]{ll}\@committee
+%       \end{tabular}\par}%
+%     \end{center}%
+%     \par
+%     \vfil
+%     \end{titlepage}}
+
+% %%
+% %% Make the Dissertation titlepage
+% %%
+% \def\maketitle{%
+%   \large  % title page should be 11pt or 12pt.  this should do.
+%   \begin{titlepage}%
+%     \setcounter{page}{0}%
+%     \vspace*{2in}   % This is the 2 inches of vertical space
+%     \null
+%     \vfill%\vfill
+%     \begin{center}%
+%     % Added by Marcos
+%     \begin{doublespace}
+%     %\doublespacing
+%       {\@title \par}%         Set title the same size as "FACULTY OF ..."
+%       \ifx\@subtitle\empty\else
+%         \vspace{1\baselineskip}   % This adds one line of space
+%       \fi
+%       {\@subtitle \par}%   <-- Here is your subtitle
+%       \ifx\@volume\@empty\else
+%         \vskip 0.16 true in
+%         \@volume
+%       \fi
+%       % changed to three lines by Jeff R.
+%       \vspace{3\baselineskip}   % This adds one line of space
+%       by%
+%       \vspace{3\baselineskip}   % This adds one line of space
+%       % remove tabular environment to get it aligned within
+%       % bounding box ---calvin 2019-04-04
+%       \@author\\%*[.66 true in]%
+%       %\rule{5.8 true in}{0.010 true in}
+%       % remove the horizontal rule per Manuscript formatting guidelines
+%       % ---calvin 2020-06-12
+%       \par
+%       \vskip 1.0 true in
+%       % Added by Marcos
+%     \end{doublespace}
+%     %\singlespace
+%       \ifthesis
+%         A Thesis Presented to the%
+%       \else
+%         A Dissertation Presented to the%
+%       \fi\\%*[0.1 true in]%
+%       FACULTY OF THE \@schoolname\\%*[0.1 true in]%
+%       \@university\\%*[0.1 true in]%
+%       In Partial Fulfillment of the\\%*[0.1 true in]%
+%       Requirements for the Degree\\%*[0.1 true in]%
+%       \ifthesis
+%         \@mastersdegree
+%       \else
+%         \@doctorsdegree
+%       \fi\\%*[0.1 true in]%
+%       \ifshowmajorfield
+%         (\@majorfield)%
+%       \fi\\%*[1.0 true cm]%
+%       %\vfill
+%       \vskip 0.75 true in
+%       \@submitdate%   should be just month and year
+%     \end{center}%
+%     \par
+%     \vfill
+%     \ifcopyright
+%           \noindent Copyright~ \@copyrightyear \hfill \@author
+%     \fi
+%   \end{titlepage}}
+
 %%
 %% Define the PROPOSAL title page
 %%
 \def\makeproptitle{%
   \begin{titlepage}%
     \null
-    \vskip 60.0 true pt%          To adjust centering.
+    \vskip 2.0in%             To adjust centering.
     \begin{center}
-      {\Large \@title \par}%      Set title in \Large size.
-      \ifx\@volume\@empty\else
-        \vskip 3em%               Vertical space before volume.
-        \@volume
+      {\fontsize{12pt}{14pt}\selectfont \@title \par}%      Set title in 12pt size.
+      \ifx\@subtitle\empty\else % Subtitle section added by Jeff
+        \vspace{1\baselineskip}   % This adds one line of space
+        {\@subtitle \par}%   <-- Here is your subtitle
       \fi
-      \vskip 3em%                 Vertical space after title.
-      \ifthesis
-        {Masters Thesis Proposal}%
-      \else
-        {Ph.D. Dissertation Proposal}%
-      \fi\\*%
-      {submitted by}%
+      % \ifx\@volume\@empty\else
+      %   \vskip 3em%               Vertical space before volume.
+      %   \@volume
+      % \fi
+      % \vskip 2.0in%                 Vertical space after title.
+      \vskip 3em   % This adds 3 lines of space (Jeff R.)
+      \fi%\\*%
+      {by}%
       \vskip 3em                % Vertical space before author.
-      {\lineskip .75em
+      {%\lineskip .75em
        \@author
        \par}%
-      \vskip 1.5cm              % Vertical space before date.
-      {\small
-        \@submitdate
-        \par}%
-      \vskip 1.5in
-      {{\bf Guidance Committee}\\*[1.0 true cm]%
-      \begin{tabular}[t]{ll}\@committee
-      \end{tabular}\par}%
-    \end{center}%
-    \par
-    \vfil
-    \end{titlepage}}
+      % \vskip 1.5cm              % Vertical space before date. COmmented out for PHP by Jeff R.
+      % {\small
+      %   \@submitdate
+      %   \par}%
+      % \vskip 1.5in
+      \vskip 5em % switched to five lines
+      % {{\bf Guidance Committee}\\*[1.0 true cm]% Commente dout by Jeff R for PHP
+      % \begin{tabular}[t]{ll}\@committee
+      % \end{tabular}\par}%
+      {A Dissertation Proposal Presented to the\\
+      FACULTY OF THE \@schoolname\\
+      \@university\\
+      In Partial Fulfillment of the\\
+      Requirements for the Degree\\
+      \@doctorsdegree}\\
+      (\@majorfield)
 
-%%
-%% Make the Dissertation titlepage
-%%
-\def\maketitle{%
-  \large  % title page should be 11pt or 12pt.  this should do.
-  \begin{titlepage}%
-    \setcounter{page}{0}%
-    \null
-    \vfill%\vfill
-    \begin{center}%
-    % Added by Marcos
-    \begin{doublespace}
-    %\doublespacing
-      {\@title \par}%         Set title the same size as "FACULTY OF ..."
-      \ifx\@volume\@empty\else
-        \vskip 0.16 true in
-        \@volume
-      \fi
-      % changed to 0.16 by Marcos
-      \vskip 0.5 true in
-      by%
-      \vskip 0.16 true in
-      % remove tabular environment to get it aligned within
-      % bounding box ---calvin 2019-04-04
-      \@author\\*[.66 true in]%
-      %\rule{5.8 true in}{0.010 true in}
-      % remove the horizontal rule per Manuscript formatting guidelines
-      % ---calvin 2020-06-12
-      \par
-      \vskip 1.0 true in
-      % Added by Marcos
-    \end{doublespace}
-    %\singlespace
-      \ifthesis
-        A Thesis Presented to the%
-      \else
-        A Dissertation Presented to the%
-      \fi\\%*[0.1 true in]%
-      FACULTY OF THE \@schoolname\\%*[0.1 true in]%
-      \@university\\%*[0.1 true in]%
-      In Partial Fulfillment of the\\%*[0.1 true in]%
-      Requirements for the Degree\\%*[0.1 true in]%
-      \ifthesis
-        \@mastersdegree
-      \else
-        \@doctorsdegree
-      \fi\\%*[0.1 true in]%
-      \ifshowmajorfield
-        (\@majorfield)%
-      \fi\\%*[1.0 true cm]%
-      %\vfill
-      \vskip 0.75 true in
-      \@submitdate%   should be just month and year
+      \vskip 3em
+
+      {\@submitdate \par}
+
+      
+            
+      
+
+
+      
     \end{center}%
     \par
     \vfill
-    \ifcopyright
-          \noindent Copyright~ \@copyrightyear \hfill \@author
-    \fi
-  \end{titlepage}}
+    \noindent Copyright~ \textcopyright{}~\@copyrightyear \hfill \@author\\  % Added copyright in lower left corner
+    \end{titlepage}}
+
+% %%
+% %% Make the Dissertation titlepage
+% %%
+% \def\maketitle{%
+%   \begin{titlepage}%
+%     \setcounter{page}{0}%
+%     \null
+%     \vfill
+%     \begin{center}%
+%     \begin{doublespace}
+%       {\fontsize{12pt}{14pt}\selectfont \@title \par}%   Set title in 12pt size.
+%       \ifx\@volume\@empty\else
+%         \vskip 0.16 true in
+%         \@volume
+%       \fi
+%       \vskip 2.0in
+%       by%
+%       \vskip 0.16 true in
+%       \@author\\*[.66 true in]%
+%       \par
+%       \vskip 2.0in
+%     \end{doublespace}
+%       \ifthesis
+%         A Thesis Presented to the%
+%       \else
+%         A Dissertation Presented to the%
+%       \fi\\
+%       FACULTY OF THE \@schoolname\\
+%       \@university\\
+%       In Partial Fulfillment of the\\
+%       Requirements for the Degree\\
+%       \ifthesis
+%         \@mastersdegree
+%       \else
+%         \@doctorsdegree
+%       \fi\\
+%       \ifshowmajorfield
+%         (\@majorfield)%
+%       \fi\\%*[1.0 true cm]%
+%       \vskip 0.75 true in
+%       \@submitdate%   should be just month and year
+%     \end{center}%
+%     \par
+%     \vfill
+%     \ifcopyright
+%           \noindent Copyright~ \copyrightsymbol{}~\@copyrightyear \hfill \@author
+%     \fi
+%   \end{titlepage}}
+
 
 %%
 %% Start a Preface Page
@@ -978,7 +863,7 @@
 
 \def\tableofcontents{%
   \newpage
-  \pdfbookmark{Table of Contents}{Table of Contents}
+  % \pdfbookmark{Table of Contents}{Table of Contents}
   \chapter*{Table of Contents}%
   \begin{singlespace}
     \vskip -1em
@@ -1206,3 +1091,14 @@
 %% Define the starting pagestyle
 %%
 \pagestyle{plain}
+
+
+%%
+%% New commands
+%%
+
+\newcommand{\subtitle}[1]{\gdef\@subtitle{#1}}
+\newcommand{\@subtitle}{}
+
+
+
